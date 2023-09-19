@@ -1,0 +1,43 @@
+<div class="grid">
+  <div class="col-4">
+    <div class="card custom mb-0">
+      <h2 style="text-align: center; text-underline: auto">Room 1</h2>
+      <div class="chat-container">
+        <div class="chat-messages">
+          <!-- Message sent for Room 1 -->
+          <div class="message sent" *ngFor="let message of messages">
+            <ng-container *ngIf="message.roomId === 'room1'">
+              <span>{{ message.message }}</span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Type your message..." (keyup.enter)="submitComment('room1')" pInputTextarea
+                 [(ngModel)]="comment">
+          <button (click)="submitComment('room1')">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card custom mb-0">
+      <h2 style="text-align: center; text-underline: auto">Room 2</h2>
+      <div class="chat-container">
+        <div class="chat-messages">
+          <!-- Message sent for Room 2 -->
+          <div class="message sent" *ngFor="let message of messages">
+            <ng-container *ngIf="message.roomId === 'room2'">
+              <span>{{ message.message }}</span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Type your message..." (keyup.enter)="submitComment('room2')" pInputTextarea
+                 [(ngModel)]="comment">
+          <button (click)="submitComment('room2')">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
